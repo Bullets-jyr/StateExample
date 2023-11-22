@@ -1,11 +1,10 @@
-package kr.co.bullets.stateexample
+package kr.co.bullets.stateexample.`20_4`
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Switch
 import androidx.compose.material.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.tooling.preview.Preview
@@ -49,30 +48,10 @@ fun MyTextField() {
     TextField(value = textValue, onValueChange = onTextChange)
 }
 
-@Composable
-fun FunctionA() {
-    var switchState by remember { mutableStateOf(true) }
-    
-    val onSwitchChange = { value : Boolean ->
-        switchState = value
-    }
-    
-    FunctionB(
-        switchState = switchState,
-        onSwitchChange = onSwitchChange
-    )
-}
-
-@Composable
-fun FunctionB(switchState: Boolean, onSwitchChange: (Boolean) -> Unit) {
-    Switch(checked = switchState, onCheckedChange = onSwitchChange)
-}
-
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     StateExampleTheme {
         DemoScreen()
-        FunctionA()
     }
 }
